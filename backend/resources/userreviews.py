@@ -19,3 +19,25 @@ class UserReviewResource(Resource):
         db.session.add(new_review)
         db.session.commit()
         return review_schema.dump(new_review), 201
+    
+class ReviewDetailResource(Resource):
+    @jwt_required()
+    def put(self, review_id):
+        user_id = get_jwt_identity()
+        review = Review.query.get_or_404(review_id)
+        if 'text' in request.json:
+            review.text = request.json["text"]
+        if 'rating' in request.json:
+            review.rating = request.json["rating"]
+        if 'book_id' in request.json:
+            review.book_id = request.json["book_id"]
+        db.session.commit()
+        return review_schema.dump(review)
+
+    @jwt_required()
+    def delete(self, review_id):
+        user_id = get_jwt_identity()
+        review = Review.query.get_or_404(review_id)
+        db.session.delete(review)
+        db.session.commit()
+        return '', 204
