@@ -10,6 +10,7 @@ from resources.auth import LoginResource, RegisterResource
 from resources.cars import AllCarResource, UserCarResource
 from resources.userfavorites import UserFavoriteResource
 from resources.userreviews import UserReviewResource
+from resources.bookinformation import GetBookInformation
 from dotenv import load_dotenv
 from os import environ
 
@@ -60,4 +61,5 @@ def create_routes():
     # TODO: Create files for your Resources in resources folder, add them here
     api.add_resource(UserReviewResource, '/api/user_reviews')
     api.add_resource(UserFavoriteResource, '/api/user_favorites')
+    api.add_resource(GetBookInformation, '/api/books')
     return api
