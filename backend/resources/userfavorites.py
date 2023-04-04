@@ -21,3 +21,11 @@ class UserFavoriteResource(Resource):
         db.session.add(new_favorite)
         db.session.commit()
         return favorite_schema.dump(new_favorite), 201
+    
+class UserFavoriteDetail(Resource):
+    @jwt_required()
+    def delete(self, favorite_id):
+        favorite = Favorite.query.get_or_404(favorite_id)
+        db.session.delete(favorite)
+        db.session.commit()
+        return '', 204

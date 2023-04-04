@@ -8,7 +8,7 @@ from database.models import db
 from database.schemas import ma
 from resources.auth import LoginResource, RegisterResource
 from resources.cars import AllCarResource, UserCarResource
-from resources.userfavorites import UserFavoriteResource
+from resources.userfavorites import UserFavoriteResource, UserFavoriteDetail
 from resources.userreviews import UserReviewResource, ReviewDetailResource
 from resources.bookinformation import GetBookInformation
 from dotenv import load_dotenv
@@ -62,5 +62,6 @@ def create_routes():
     api.add_resource(UserReviewResource, '/api/user_reviews')
     api.add_resource(ReviewDetailResource, '/api/user_reviews/<string:review_id>')
     api.add_resource(UserFavoriteResource, '/api/user_favorites')
+    api.add_resource(UserFavoriteDetail, '/api/user_favorites/<int:favorite_id>')
     api.add_resource(GetBookInformation, '/api/books')
     return api
