@@ -10,7 +10,7 @@ class UserFavoriteResource(Resource):
     def get(self):
         user_id = get_jwt_identity()
         user_favorites = Favorite.query.filter_by(user_id=user_id)
-        return user_favorites.dump(user_favorites), 200
+        return favorites_schema.dump(user_favorites), 200
     
     @jwt_required()
     def post(self):

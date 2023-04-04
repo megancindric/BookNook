@@ -61,7 +61,7 @@ cars_schema = CarSchema(many=True)
 # TODO: Add your schemas below
 class ReviewSchema(ma.Schema):
     id = fields.Integer(primary_key=True)
-    book_id = fields.Integer(required=True)
+    book_id = fields.String(required=True)
     text = fields.String(required=True)
     rating = fields.Integer(required=True)
     user_id = fields.Integer()
@@ -78,7 +78,7 @@ reviews_schema = ReviewSchema(many=True)
 
 class FavoriteSchema(ma.Schema):
     id = fields.Integer(primary_key=True)
-    book_id = fields.Integer(required=True)
+    book_id = fields.String(required=True)
     title = fields.String(required=True)
     thumbnail_url = fields.String()
     user_id = fields.Integer()

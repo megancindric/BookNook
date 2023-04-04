@@ -7,3 +7,8 @@ from database.schemas import review_schema, reviews_schema
 class GetBookInformation(Resource):
     def get(self):
         pass
+        custom_response = {}
+    # All reviews from DB related to query param book ID
+    # Average rating
+    # Bool representing favorite matching book
+    # 200 status code

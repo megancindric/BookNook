@@ -33,7 +33,7 @@ class Car(db.Model):
 # TODO: Add your models below, remember to add a new migration and upgrade database
 class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    book_id = db.Column(db.Integer, nullable=False)
+    book_id = db.Column(db.String(50), nullable=False)
     text = db.Column(db.String(255), nullable=False)
     rating = db.Column(db.Integer, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
@@ -41,7 +41,7 @@ class Review(db.Model):
 
 class Favorite(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    book_id = db.Column(db.Integer, nullable=False)
+    book_id = db.Column(db.String(50), nullable=False)
     title = db.Column(db.String(255), nullable=False)
     thumbnail_url = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))

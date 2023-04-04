@@ -6,6 +6,11 @@ from database.schemas import review_schema, reviews_schema
 
 class UserReviewResource(Resource):
     @jwt_required()
+    def get(self):
+        user_id = get_jwt_identity()
+        user_reviews = Review.query.filter_by(user_id=user_id)
+        return reviews_schema.dump(user_reviews),200
+    @jwt_required()
     def post(self):
         user_id = get_jwt_identity()
         form_data = request.get_json()
