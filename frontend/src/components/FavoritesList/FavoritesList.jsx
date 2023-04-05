@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const FavoritesList = (props) => {
+const FavoritesList = ({ userFavorites }) => {
   return <div>Favorites List</div>;
 };
 

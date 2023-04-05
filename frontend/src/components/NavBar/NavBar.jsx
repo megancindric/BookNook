@@ -18,10 +18,10 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <button>Search Books</button>
+          <button onClick={() => navigate("/search")}>Search</button>
           {user ? (
             <>
-              <button>Favorites</button>
+              <button onClick={() => navigate("/favorites")}>Favorites</button>
               <button onClick={logoutUser}>Logout</button>
             </>
           ) : (

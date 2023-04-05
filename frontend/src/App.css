@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 *,
 *::before,
 *::after {
@@ -19,8 +21,9 @@ p {
 
 button {
   background-color: transparent;
-  border: 2px solid steelblue;
-  color: steelblue;
+  border-radius: 5px;
+  border: 2px solid #540b0e;
+  color: #540b0e;
   font-size: 1rem;
   font-family: inherit;
   max-width: 100px;
@@ -30,7 +33,7 @@ button {
 button:hover {
   cursor: pointer;
   color: white;
-  background-color: steelblue;
+  background-color: #540b0e;
 }
 
 .container {
