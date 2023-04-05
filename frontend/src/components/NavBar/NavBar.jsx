@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import "./NavBar.css";
+import { ReactComponent as Books } from "../../assets/books.svg";
 
 const Navbar = () => {
   const { logoutUser, user } = useContext(AuthContext);
@@ -12,14 +13,21 @@ const Navbar = () => {
       <ul>
         <li className="brand">
           <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-            <b>React/Flask JWT</b>
+            <Books fill={"white"} height={48} width={48} />
+            <b>BookNook</b>
           </Link>
         </li>
         <li>
+          <button>Search Books</button>
           {user ? (
-            <button onClick={logoutUser}>Logout</button>
+            <>
+              <button>Favorites</button>
+              <button onClick={logoutUser}>Logout</button>
+            </>
           ) : (
-            <button onClick={() => navigate("/login")}>Login</button>
+            <>
+              <button onClick={() => navigate("/login")}>Login</button>
+            </>
           )}
         </li>
       </ul>
