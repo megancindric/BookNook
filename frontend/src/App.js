@@ -40,7 +40,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/search" element={<SearchPage />} />
-        <Route path="/bookdetails" element={<BookDetailsPage/>}/>
+        <Route path="/bookdetails/:bookId" element={<BookDetailsPage/>}/>
       </Routes>
       <Footer />
     </div>
