@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const SearchBar = ({ fetchBooks }) => {
-  const [searchTerm, setSearchTerm] = useState("Harry Potter");
+  const [searchTerm, setSearchTerm] = useState("Cloud Atlas");
 
   useEffect(() => {
     fetchBooks(searchTerm);
@@ -16,13 +16,13 @@ const SearchBar = ({ fetchBooks }) => {
       }}
     >
       <label className=" text-5xl text-amber-950">Search Books</label>
-      <div className="flex flex-row justify-around">
+      <div className="flex flex-row gap-10 m-auto">
         <input
           className=" p-2 text-lg border-2 rounded-lg drop-shadow-lg"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <button>Search</button>
+        <button className=" text-2xl">Search</button>
       </div>
     </form>
   );

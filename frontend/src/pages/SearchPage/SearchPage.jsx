@@ -17,7 +17,7 @@ const SearchPage = () => {
   };
 
   return (
-    <div className="container">
+    <div className=" m-auto overflow-auto text-center max-w-[1000px] flex flex-col gap-14">
       <SearchBar fetchBooks={fetchBooks} />
       <ResultsList searchResults={searchResults} />
     </div>

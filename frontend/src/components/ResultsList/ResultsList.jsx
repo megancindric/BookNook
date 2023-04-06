@@ -5,9 +5,9 @@ import Book from "../Book/Book";
 const ResultsList = ({ searchResults }) => {
   console.log(searchResults);
   return (
-    <div>
-      {searchResults.map((book) => (
-        <Link to={`/bookdetails/${book.id}`}>
+    <div className="flex flex-row flex-wrap gap-10 ">
+      {searchResults.map((book, index) => (
+        <Link to={`/bookdetails/${book.id}`} key={index}>
           <Book book={book} />
         </Link>
       ))}
