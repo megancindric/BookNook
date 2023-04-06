@@ -4,9 +4,9 @@ const ReviewList = ({ localBookDetails }) => {
   console.log(localBookDetails);
   return (
     <div>
-      {localBookDetails.reviews ? (
+      {localBookDetails?.reviews ? (
         localBookDetails.reviews.map((review, index) => (
-          <div>
+          <div key={index}>
             <div>{review.rating}</div>
             <div>{review.text}</div>
           </div>

@@ -3,8 +3,11 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import BookDetails from "../../components/BookDetails/BookDetails";
 import ReviewList from "../../components/ReviewList/ReviewList";
+import ReviewForm from "../../components/ReviewForm/ReviewForm";
+import useAuth from "../../hooks/useAuth";
 const BookDetailsPage = () => {
   const { bookId } = useParams();
+  const [user, token] = useAuth();
   const [googleBookDetails, setgoogleBookDetails] = useState();
   const [localBookDetails, setLocalBookDetails] = useState();
   useEffect(() => {
@@ -26,8 +29,14 @@ const BookDetailsPage = () => {
   async function fetchLocalBookDetails(bookId) {
     try {
       let response = await axios.get(
-        `http://127.0.0.1:5000/api/books?book_id=${bookId}`
+        `http://127.0.0.1:5000/api/books?book_id=${bookId}`,
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
       );
+      console.log(response);
       setLocalBookDetails(response.data);
     } catch (error) {
       console.log("Error in fetchBookDetails", error);
@@ -37,6 +46,7 @@ const BookDetailsPage = () => {
   return (
     <div className="container">
       <BookDetails googleBookDetails={googleBookDetails} />
+      <ReviewForm bookId={bookId} />
       <ReviewList localBookDetails={localBookDetails} />
     </div>
   );
