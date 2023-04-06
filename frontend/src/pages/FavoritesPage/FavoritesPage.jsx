@@ -4,7 +4,7 @@ import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 const FavoritesPage = () => {
   const [user, token] = useAuth();
-  const [userFavorites, setUserFavorites] = useState([]);
+  const [userFavorites, setUserFavorites] = useState();
 
   useEffect(() => {
     fetchUserFavorites();
