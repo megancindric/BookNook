@@ -36,7 +36,6 @@ const BookDetailsPage = () => {
           },
         }
       );
-      console.log(response);
       setLocalBookDetails(response.data);
     } catch (error) {
       console.log("Error in fetchBookDetails", error);
