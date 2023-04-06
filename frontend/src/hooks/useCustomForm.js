@@ -7,7 +7,11 @@ const useCustomForm = (initialValues = {}, onSubmit) => {
     e.persist();
     if (e.target.name === "isStudent") {
       setFormValues({ ...formData, [e.target.name]: e.target.checked });
-    } else {
+    } 
+    else if (e.target.name === "rating"){
+      setFormValues({ ...formData, [e.target.name]: parseInt(e.target.value) });
+    }
+    else {
       setFormValues({ ...formData, [e.target.name]: e.target.value });
     }
   };

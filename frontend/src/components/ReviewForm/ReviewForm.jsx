@@ -2,7 +2,7 @@ import React from "react";
 import useCustomForm from "../../hooks/useCustomForm";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
-const ReviewForm = ({ bookId }) => {
+const ReviewForm = ({ bookId, fetchLocalBookDetails }) => {
   const [user, token] = useAuth();
   const defaultValues = {
     rating: 0,
@@ -15,7 +15,7 @@ const ReviewForm = ({ bookId }) => {
   );
   async function postReview() {
     try {
-      let response = axios.post(
+      let response = await axios.post(
         "http://127.0.0.1:5000/api/user_reviews",
         formData,
         {
@@ -24,22 +24,32 @@ const ReviewForm = ({ bookId }) => {
           },
         }
       );
-
-      console.log(response);
+      fetchLocalBookDetails(bookId);
     } catch (error) {
       console.log("Error in postReview", error);
     }
   }
   return (
-    <form className="form">
+    <form className="form" onSubmit={handleSubmit}>
       <p>Add Review!</p>
       <label>
         Rating:
-        <input type="number" max={5} min={1}></input>
+        <input
+          type="number"
+          max={5}
+          min={1}
+          name="rating"
+          value={formData.rating}
+          onChange={handleInputChange}
+        ></input>
       </label>
       <label>
         Text:
-        <textarea></textarea>
+        <textarea
+          name="text"
+          value={formData.text}
+          onChange={handleInputChange}
+        ></textarea>
       </label>
       <button>Submit</button>
     </form>

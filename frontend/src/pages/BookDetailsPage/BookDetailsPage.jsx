@@ -45,7 +45,10 @@ const BookDetailsPage = () => {
   return (
     <div className="container">
       <BookDetails googleBookDetails={googleBookDetails} />
-      <ReviewForm bookId={bookId} />
+      <ReviewForm
+        bookId={bookId}
+        fetchLocalBookDetails={fetchLocalBookDetails}
+      />
       <ReviewList localBookDetails={localBookDetails} />
     </div>
   );
