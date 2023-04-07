@@ -1,7 +1,7 @@
 import React from "react";
-
-const ReviewList = ({ localBookDetails }) => {
-  console.log(localBookDetails?.reviews);
+import useAuth from "../../hooks/useAuth";
+const ReviewList = ({ localBookDetails, deleteReview }) => {
+  const [user, token] = useAuth();
   return (
     <div>
       {localBookDetails?.reviews ? (
@@ -9,6 +9,13 @@ const ReviewList = ({ localBookDetails }) => {
           <div key={index}>
             <div>{review.rating} Test</div>
             <div>{review.text}</div>
+            {user.id === review.user_id ? (
+              <button onClick={() => deleteReview(review.id)}>
+                Delete Review
+              </button>
+            ) : (
+              <div></div>
+            )}
           </div>
         ))
       ) : (

@@ -82,6 +82,22 @@ const BookDetailsPage = () => {
     }
   }
 
+  async function deleteReview(reviewId) {
+    try {
+      let response = await axios.delete(
+        `http://127.0.0.1:5000/api/user_reviews/${reviewId}`,
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+      fetchLocalBookDetails(bookId);
+    } catch (error) {
+      console.log("Error in favoriteBook", error);
+    }
+  }
+
   return (
     <div className="container">
       <BookDetails googleBookDetails={googleBookDetails} />
@@ -94,7 +110,10 @@ const BookDetailsPage = () => {
         bookId={bookId}
         fetchLocalBookDetails={fetchLocalBookDetails}
       />
-      <ReviewList localBookDetails={localBookDetails} />
+      <ReviewList
+        localBookDetails={localBookDetails}
+        deleteReview={deleteReview}
+      />
     </div>
   );
 };
