@@ -22,6 +22,7 @@ class GetBookInformation(Resource):
             matching_favorite = Favorite.query.filter_by(user_id=user_id, book_id = book_id).first()
             if matching_favorite:
                 custom_response["is_favorite"] = True
+                custom_response["favorite_id"] = matching_favorite.id
             else: 
                 custom_response["is_favorite"] = False
         except:

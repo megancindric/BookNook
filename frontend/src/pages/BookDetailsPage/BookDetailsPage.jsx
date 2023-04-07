@@ -66,10 +66,30 @@ const BookDetailsPage = () => {
     }
   }
 
+  async function unfavoriteBook() {
+    try {
+      let response = await axios.delete(
+        `http://127.0.0.1:5000/api/user_favorites/${localBookDetails.favorite_id}`,
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+      fetchLocalBookDetails(bookId);
+    } catch (error) {
+      console.log("Error in favoriteBook", error);
+    }
+  }
+
   return (
     <div className="container">
       <BookDetails googleBookDetails={googleBookDetails} />
-      <FavoriteButton localBookDetails={localBookDetails} />
+      <FavoriteButton
+        localBookDetails={localBookDetails}
+        favoriteBook={favoriteBook}
+        unfavoriteBook={unfavoriteBook}
+      />
       <ReviewForm
         bookId={bookId}
         fetchLocalBookDetails={fetchLocalBookDetails}

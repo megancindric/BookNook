@@ -1,14 +1,14 @@
 import React from "react";
 
-const FavoriteButton = ({ localBookDetails }) => {
+const FavoriteButton = ({ localBookDetails, favoriteBook, unfavoriteBook }) => {
   return (
     <div>
       {localBookDetails ? (
         <div>
           {localBookDetails.is_favorite ? (
-            <div>This is a favorite</div>
+            <div onClick={() => unfavoriteBook()}>This is a favorite</div>
           ) : (
-            <button>Click to favorite!</button>
+            <button onClick={() => favoriteBook()}>Click to favorite!</button>
           )}
         </div>
       ) : (
