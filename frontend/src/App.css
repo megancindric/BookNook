@@ -10,6 +10,16 @@
   box-sizing: inherit;
 }
 
+@font-face{
+  font-family: "Comfortaa";
+  src: local("Comfortaa"), url("./assets/Comfortaa.ttf") format("truetype");
+  font-weight: normal;
+}
+
+.comfortaa-font {
+  font-family:"Comfortaa"
+}
+
 html {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
@@ -21,9 +31,9 @@ p {
 
 button {
   background-color: transparent;
-  border-radius: 5px;
-  border: 2px solid #540b0e;
-  color: #540b0e;
+  border-radius: 8px;
+  border: 2px solid #0f4c5c;
+  color: #0f4c5c;
   font-size: 1rem;
   font-family: inherit;
   max-width: 100px;
@@ -33,7 +43,7 @@ button {
 button:hover {
   cursor: pointer;
   color: white;
-  background-color: #540b0e;
+  background-color: #0f4c5c;
 }
 
 .container {

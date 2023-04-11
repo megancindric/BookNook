@@ -11,13 +11,17 @@ const Navbar = () => {
   return (
     <div className="navBar">
       <ul>
-        <li className="brand">
-          <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+        <li>
+          <Link
+            to="/"
+            style={{ textDecoration: "none", color: "white" }}
+            className="brand"
+          >
             <Books fill={"white"} height={48} width={48} />
             <b>BookNook</b>
           </Link>
         </li>
-        <li>
+        <li className="brand">
           <button onClick={() => navigate("/search")}>Search</button>
           {user ? (
             <>

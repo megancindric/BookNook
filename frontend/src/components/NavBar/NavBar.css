@@ -9,7 +9,7 @@ li {
 }
 
 .navBar {
-  background: #540b0e;
+  background: #0f4c5c;
   box-shadow: 4px 2px 5px gray;
   color: white;
   margin-bottom: 2rem;
@@ -21,15 +21,19 @@ li {
   border: 2px solid white;
   color: white;
   padding: 0.4rem 0.5rem;
+  border-radius: 8px;
 }
 
 .navBar button:hover {
   background: white;
-  color: #540b0e;
+  color: #0f4c5c;
   cursor: pointer;
 }
 
 .brand {
   cursor: pointer;
   font-size: 2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }

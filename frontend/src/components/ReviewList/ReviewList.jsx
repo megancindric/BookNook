@@ -9,7 +9,7 @@ const ReviewList = ({ localBookDetails, deleteReview }) => {
           <div key={index}>
             <div>{review.rating} Test</div>
             <div>{review.text}</div>
-            {user.id === review.user_id ? (
+            {user && user.id === review.user_id ? (
               <button onClick={() => deleteReview(review.id)}>
                 Delete Review
               </button>
