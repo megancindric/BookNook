@@ -17,7 +17,11 @@ const SearchPage = () => {
   };
 
   return (
-    <div className=" m-auto text-center max-w-[1000px] flex flex-col gap-14">
+    <div className=" m-auto text-center max-w-[1000px] flex flex-col gap-8">
+      <h1 className=" text-5xl text-[#0f4c5c] font-bold drop-shadow-lg">
+        Search Books
+      </h1>
+      <hr className=" h-0.5 bg-[#0f4c5c] border-0 mb-4 w-1/2 m-auto" />
       <SearchBar fetchBooks={fetchBooks} />
       <ResultsList searchResults={searchResults} />
     </div>
