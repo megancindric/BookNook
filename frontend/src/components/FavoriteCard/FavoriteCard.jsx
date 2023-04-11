@@ -2,7 +2,10 @@ import React from "react";
 
 const FavoriteCard = ({ book }) => {
   return (
-    <div className=" w-42 relative  transition-all duration-100 hover:scale-110 flex items-center justify-center ">
+    <div
+      key={book.id}
+      className=" w-42 relative  transition-all hover:scale-110 flex items-center justify-center "
+    >
       <img
         src={book.thumbnail_url ?? "/books.svg"}
         className="transition-all duration-100 "
