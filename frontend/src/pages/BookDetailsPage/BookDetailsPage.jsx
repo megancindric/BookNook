@@ -99,17 +99,19 @@ const BookDetailsPage = () => {
   }
 
   return (
-    <div className="container">
-      <BookDetails googleBookDetails={googleBookDetails} />
-      <FavoriteButton
-        localBookDetails={localBookDetails}
-        favoriteBook={favoriteBook}
-        unfavoriteBook={unfavoriteBook}
-      />
-      <ReviewForm
-        bookId={bookId}
-        fetchLocalBookDetails={fetchLocalBookDetails}
-      />
+    <div className="m-auto max-w-7xl flex flex-col items-center gap-6 justify-around mb-28">
+      <div className="flex flex-row justify-center items-center">
+        <BookDetails googleBookDetails={googleBookDetails} />
+        <FavoriteButton
+          localBookDetails={localBookDetails}
+          favoriteBook={favoriteBook}
+          unfavoriteBook={unfavoriteBook}
+        />
+        <ReviewForm
+          bookId={bookId}
+          fetchLocalBookDetails={fetchLocalBookDetails}
+        />
+      </div>
       <ReviewList
         localBookDetails={localBookDetails}
         deleteReview={deleteReview}

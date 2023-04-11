@@ -6,7 +6,7 @@ const FavoriteButton = ({ localBookDetails, favoriteBook, unfavoriteBook }) => {
       {localBookDetails ? (
         <div>
           {localBookDetails.is_favorite ? (
-            <div onClick={() => unfavoriteBook()}>This is a favorite</div>
+            <button onClick={() => unfavoriteBook()}>Favorited!</button>
           ) : (
             <button onClick={() => favoriteBook()}>Click to favorite!</button>
           )}

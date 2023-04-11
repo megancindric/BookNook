@@ -30,10 +30,13 @@ const ReviewForm = ({ bookId, fetchLocalBookDetails }) => {
     }
   }
   return (
-    <form className="form" onSubmit={handleSubmit}>
-      <p>Add Review!</p>
+    <form
+      className="form text-[#0f4c5c] rounded-lg drop-shadow-lg bg-slate-50 p-8"
+      onSubmit={handleSubmit}
+    >
+      <p className=" text-2xl">Leave a Review...</p>
       <label>
-        Rating:
+        Rating
         <input
           type="number"
           max={5}
@@ -43,14 +46,13 @@ const ReviewForm = ({ bookId, fetchLocalBookDetails }) => {
           onChange={handleInputChange}
         ></input>
       </label>
-      <label>
-        Text:
-        <textarea
-          name="text"
-          value={formData.text}
-          onChange={handleInputChange}
-        ></textarea>
-      </label>
+      <textarea
+        name="text"
+        value={formData.text}
+        onChange={handleInputChange}
+        placeholder="I thought this book was..."
+        className="rounded-lg border-2 p-2"
+      ></textarea>
       <button>Submit</button>
     </form>
   );
