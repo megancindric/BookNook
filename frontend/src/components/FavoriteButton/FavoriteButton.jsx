@@ -1,4 +1,5 @@
 import React from "react";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 const FavoriteButton = ({ localBookDetails, favoriteBook, unfavoriteBook }) => {
   return (
@@ -12,7 +13,7 @@ const FavoriteButton = ({ localBookDetails, favoriteBook, unfavoriteBook }) => {
           )}
         </div>
       ) : (
-        <div>LOADING</div>
+        <LoadingSpinner />
       )}
     </div>
   );
