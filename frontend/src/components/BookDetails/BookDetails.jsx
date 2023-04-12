@@ -6,7 +6,10 @@ const BookDetails = ({ googleBookDetails }) => {
   return (
     <div>
       {googleBookDetails ? (
-        <div key={googleBookDetails.id} className="flex flex-row w-56 p-4">
+        <div
+          key={googleBookDetails.id}
+          className="flex flex-row w-96 p-4 gap-10"
+        >
           <img
             src={
               googleBookDetails.volumeInfo?.imageLinks?.thumbnail ??

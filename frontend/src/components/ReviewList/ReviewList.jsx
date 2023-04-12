@@ -1,21 +1,26 @@
 import React from "react";
 import useAuth from "../../hooks/useAuth";
+import StarRating from "../StarRating/StarRating";
 const ReviewList = ({ localBookDetails, deleteReview }) => {
   const [user, token] = useAuth();
   return (
-    <div>
+    <div className="flex flex-col w-3/5 gap-4">
       {localBookDetails?.reviews ? (
         localBookDetails.reviews.map((review, index) => (
-          <div key={index}>
-            <div>{review.rating} Test</div>
-            <div>{review.text}</div>
-            {user && user.id === review.user_id ? (
-              <button onClick={() => deleteReview(review.id)}>
-                Delete Review
-              </button>
-            ) : (
-              <div></div>
-            )}
+          <div
+            key={index}
+            className="flex flex-col gap-2 border rounded-lg p-6 shadow-lg bg-slate-50"
+          >
+            <div className="flex flex-row justify-between">
+              <StarRating rating={review.rating} />
+              {user && user.id === review.user_id ? (
+                <button onClick={() => deleteReview(review.id)}>Delete</button>
+              ) : (
+                <div></div>
+              )}
+            </div>
+            <p>{review.text}</p>
+            <p className="">~{review.user.username}</p>
           </div>
         ))
       ) : (
