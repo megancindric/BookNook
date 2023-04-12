@@ -99,16 +99,16 @@ const BookDetailsPage = () => {
   }
 
   return (
-    <div className="m-auto max-w-7xl flex flex-col items-center gap-6 justify-around mb-28">
-      <div className="flex flex-row between">
+    <div className="m-auto max-w-7xl flex flex-col items-center gap-6 mb-28">
+      <div className="flex flex-row">
         <BookDetails googleBookDetails={googleBookDetails} />
         <FavoriteButton
           localBookDetails={localBookDetails}
           favoriteBook={favoriteBook}
           unfavoriteBook={unfavoriteBook}
         />
-      </div>{" "}
-      <div className="flex flex-row justify-between">
+      </div>
+      <div className="flex flex-row justify-around w-full">
         <ReviewForm
           bookId={bookId}
           fetchLocalBookDetails={fetchLocalBookDetails}

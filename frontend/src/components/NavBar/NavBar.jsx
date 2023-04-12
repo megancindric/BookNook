@@ -18,7 +18,7 @@ const Navbar = () => {
             className="brand"
           >
             <Books fill={"white"} height={48} width={48} />
-            <b>BookNook</b>
+            <b className="hidden sm:block">BookNook</b>
           </Link>
         </li>
         <li className="brand">

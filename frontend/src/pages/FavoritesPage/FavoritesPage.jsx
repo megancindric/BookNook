@@ -26,7 +26,7 @@ const FavoritesPage = () => {
     }
   }
   return (
-    <div className="m-auto text-center max-w-7xl flex flex-col gap-6">
+    <div className="m-auto text-center max-w-7xl flex flex-col gap-6 items-center">
       <h1 className=" text-5xl text-[#0f4c5c] font-bold drop-shadow-lg">
         {user.username}'s Favorites
       </h1>

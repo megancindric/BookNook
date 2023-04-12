@@ -3,7 +3,7 @@ const Book = ({ book }) => {
   return (
     <div
       key={book.id}
-      className=" w-42 relative  transition-all hover:scale-110 flex items-center justify-center "
+      className=" w-42 relative  transition-all hover:scale-110 flex items-center justify-center"
     >
       <img
         src={book.volumeInfo?.imageLinks?.thumbnail ?? "/books.svg"}

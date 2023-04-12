@@ -32,30 +32,33 @@ const ReviewForm = ({ bookId, fetchLocalBookDetails }) => {
   }
   return (
     <form
-      className="form text-[#0f4c5c] rounded-lg border shadow-lg bg-slate-50 p-8"
+      className="form text-[#0f4c5c] rounded-lg border shadow-lg bg-slate-50 p-10 h-[400px]"
       onSubmit={handleSubmit}
     >
-      <p className=" text-2xl">Leave a Review...</p>
-      <label>
-        Rating
-        <input
-          type="number"
-          max={5}
-          min={1}
-          name="rating"
-          className="border-2 p-2 rounded-lg"
-          value={formData.rating}
+      <div className="m-auto flex flex-col gap-6">
+        <p className=" text-2xl">Leave a Review...</p>
+        <label>
+          Rating
+          <input
+            type="number"
+            max={5}
+            min={1}
+            name="rating"
+            className="border-2 p-2 rounded-lg"
+            value={formData.rating}
+            onChange={handleInputChange}
+          ></input>
+        </label>
+        <textarea
+          name="text"
+          value={formData.text}
           onChange={handleInputChange}
-        ></input>
-      </label>
-      <textarea
-        name="text"
-        value={formData.text}
-        onChange={handleInputChange}
-        placeholder="I thought this book was..."
-        className="rounded-lg border-2 p-2"
-      ></textarea>
-      <button>Submit</button>
+          placeholder="I thought this book was..."
+          className="rounded-lg border-2 p-2"
+          rows={4}
+        ></textarea>
+        <button>Submit</button>
+      </div>
     </form>
   );
 };

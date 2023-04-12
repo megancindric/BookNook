@@ -4,7 +4,7 @@ import StarRating from "../StarRating/StarRating";
 const ReviewList = ({ localBookDetails, deleteReview }) => {
   const [user, token] = useAuth();
   return (
-    <div className="flex flex-col w-3/5 gap-4">
+    <div className="flex flex-col gap-4 w-1/2">
       {localBookDetails?.reviews ? (
         localBookDetails.reviews.map((review, index) => (
           <div
