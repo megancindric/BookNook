@@ -32,7 +32,7 @@ const ReviewForm = ({ bookId, fetchLocalBookDetails }) => {
   }
   return (
     <form
-      className="form text-[#0f4c5c] rounded-lg drop-shadow-lg bg-slate-50 p-8"
+      className="form text-[#0f4c5c] rounded-lg border shadow-lg bg-slate-50 p-8"
       onSubmit={handleSubmit}
     >
       <p className=" text-2xl">Leave a Review...</p>
@@ -43,6 +43,7 @@ const ReviewForm = ({ bookId, fetchLocalBookDetails }) => {
           max={5}
           min={1}
           name="rating"
+          className="border-2 p-2 rounded-lg"
           value={formData.rating}
           onChange={handleInputChange}
         ></input>

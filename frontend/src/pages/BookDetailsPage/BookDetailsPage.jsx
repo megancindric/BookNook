@@ -100,7 +100,7 @@ const BookDetailsPage = () => {
 
   return (
     <div className="m-auto max-w-7xl flex flex-col items-center gap-6 justify-around mb-28">
-      <div className="flex flex-row justify-center items-center">
+      <div className="flex flex-row between">
         <BookDetails googleBookDetails={googleBookDetails} />
         <FavoriteButton
           localBookDetails={localBookDetails}
@@ -108,14 +108,16 @@ const BookDetailsPage = () => {
           unfavoriteBook={unfavoriteBook}
         />
       </div>{" "}
-      <ReviewForm
-        bookId={bookId}
-        fetchLocalBookDetails={fetchLocalBookDetails}
-      />
-      <ReviewList
-        localBookDetails={localBookDetails}
-        deleteReview={deleteReview}
-      />
+      <div className="flex flex-row justify-between">
+        <ReviewForm
+          bookId={bookId}
+          fetchLocalBookDetails={fetchLocalBookDetails}
+        />
+        <ReviewList
+          localBookDetails={localBookDetails}
+          deleteReview={deleteReview}
+        />
+      </div>
     </div>
   );
 };
