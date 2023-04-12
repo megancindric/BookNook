@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import FavoriteCard from "../FavoriteCard/FavoriteCard";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 const FavoritesList = ({ userFavorites }) => {
   console.log(userFavorites);
   return (
@@ -9,7 +10,7 @@ const FavoritesList = ({ userFavorites }) => {
           <FavoriteCard book={book} key={index} />
         ))
       ) : (
-        <div>LOADING</div>
+        <LoadingSpinner />
       )}
     </div>
   );

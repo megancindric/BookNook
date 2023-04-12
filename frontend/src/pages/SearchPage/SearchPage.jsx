@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import ResultsList from "../../components/ResultsList/ResultsList";
 import axios from "axios";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 const SearchPage = () => {
   const [searchResults, setSearchResults] = useState([]);
 
@@ -23,7 +24,11 @@ const SearchPage = () => {
       </h1>
       <hr className=" h-0.5 bg-[#0f4c5c] border-0 mb-4 w-1/2 m-auto" />
       <SearchBar fetchBooks={fetchBooks} />
-      <ResultsList searchResults={searchResults} />
+      {searchResults.length > 0 ? (
+        <ResultsList searchResults={searchResults} />
+      ) : (
+        <LoadingSpinner />
+      )}
     </div>
   );
 };
