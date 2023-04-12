@@ -107,11 +107,11 @@ const BookDetailsPage = () => {
           favoriteBook={favoriteBook}
           unfavoriteBook={unfavoriteBook}
         />
-        <ReviewForm
-          bookId={bookId}
-          fetchLocalBookDetails={fetchLocalBookDetails}
-        />
-      </div>
+      </div>{" "}
+      <ReviewForm
+        bookId={bookId}
+        fetchLocalBookDetails={fetchLocalBookDetails}
+      />
       <ReviewList
         localBookDetails={localBookDetails}
         deleteReview={deleteReview}
