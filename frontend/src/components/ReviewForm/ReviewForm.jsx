@@ -9,7 +9,7 @@ const ReviewForm = ({ bookId, fetchLocalBookDetails }) => {
     text: "",
     book_id: bookId,
   };
-  const [formData, handleInputChange, handleSubmit] = useCustomForm(
+  const [formData, handleInputChange, handleSubmit, reset] = useCustomForm(
     defaultValues,
     postReview
   );
@@ -24,6 +24,7 @@ const ReviewForm = ({ bookId, fetchLocalBookDetails }) => {
           },
         }
       );
+      reset();
       fetchLocalBookDetails(bookId);
     } catch (error) {
       console.log("Error in postReview", error);
