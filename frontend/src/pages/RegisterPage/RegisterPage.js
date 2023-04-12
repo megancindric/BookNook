@@ -17,8 +17,9 @@ const RegisterPage = () => {
   );
 
   return (
-    <div className="container">
-      <form className="form" onSubmit={handleSubmit}>
+    <div className="container flex flex-col gap-2">
+        <h1 className=" text-4xl text-[#0f4c5c]">Register for BookNook</h1>
+      <form className="form rounded-lg bg-slate-100 p-4" onSubmit={handleSubmit}>
         <label>
           Username:{" "}
           <input
@@ -26,6 +27,8 @@ const RegisterPage = () => {
             name="username"
             value={formData.username}
             onChange={handleInputChange}
+            className="border rounded-lg"
+
           />
         </label>
         <label>
@@ -35,6 +38,8 @@ const RegisterPage = () => {
             name="firstName"
             value={formData.firstName}
             onChange={handleInputChange}
+            className="border rounded-lg"
+
           />
         </label>
         <label>
@@ -44,6 +49,8 @@ const RegisterPage = () => {
             name="lastName"
             value={formData.lastName}
             onChange={handleInputChange}
+            className="border rounded-lg"
+
           />
         </label>
         <label>
@@ -53,6 +60,8 @@ const RegisterPage = () => {
             name="email"
             value={formData.email}
             onChange={handleInputChange}
+            className="border rounded-lg"
+
           />
         </label>
         <label>
@@ -62,6 +71,8 @@ const RegisterPage = () => {
             name="password"
             value={formData.password}
             onChange={handleInputChange}
+            className="border rounded-lg"
+
           />
         </label>
         <button>Register!</button>

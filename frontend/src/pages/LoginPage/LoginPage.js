@@ -19,8 +19,9 @@ const LoginPage = () => {
   }, [isServerError]);
 
   return (
-    <div className="container">
-      <form className="form" onSubmit={handleSubmit}>
+    <div className="container flex flex-col gap-2">
+      <h1 className=" text-4xl text-[#0f4c5c]">Welcome to the BookNook!</h1>
+      <form className="form rounded-lg shadow-lg bg-slate-100 p-4" onSubmit={handleSubmit}>
         <label>
           Username:{" "}
           <input
@@ -28,6 +29,7 @@ const LoginPage = () => {
             name="username"
             value={formData.username}
             onChange={handleInputChange}
+            className="border rounded-lg"
           />
         </label>
         <label>
@@ -37,13 +39,14 @@ const LoginPage = () => {
             name="password"
             value={formData.password}
             onChange={handleInputChange}
+            className="border rounded-lg"
           />
         </label>
         {isServerError ? (
           <p className="error">Login failed, incorrect credentials!</p>
         ) : null}
-        <Link to="/register">Click to register!</Link>
         <button>Login!</button>
+        <Link to="/register" className=" transition-all hover:scale-110 font-bold text-[#0f4c5c]">Click to register!</Link>
       </form>
     </div>
   );

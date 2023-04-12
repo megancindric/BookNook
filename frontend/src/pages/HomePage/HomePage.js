@@ -29,7 +29,7 @@ const HomePage = () => {
   return (
     <div className="container">
       {console.log(user)}
-      <h1>Home Page for {user.username}!</h1>
+      <h1 className=" text-4xl text-[#0f4c5c]">Welcome, {user.username}!</h1>
       {cars &&
         cars.map((car) => (
           <p key={car.id}>
