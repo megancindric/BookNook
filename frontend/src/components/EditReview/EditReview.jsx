@@ -16,7 +16,7 @@ const EditReview = ({ review, fetchLocalBookDetails, setShowModal }) => {
   async function editReview() {
     try {
       let response = await axios.put(
-        "http://127.0.0.1:5000/api/user_reviews",
+        `http://127.0.0.1:5000/api/user_reviews/${review.id}`,
         formData,
         {
           headers: {
@@ -27,6 +27,7 @@ const EditReview = ({ review, fetchLocalBookDetails, setShowModal }) => {
       console.log(response);
       reset();
       fetchLocalBookDetails(formData.book_id);
+      setShowModal({ isOpen: false, value: null });
     } catch (error) {
       console.log("Error in editReview", error);
     }
