@@ -2,6 +2,7 @@ import React from "react";
 import useCustomForm from "../../hooks/useCustomForm";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
+import { ReactComponent as Star } from "../../assets/star.svg";
 const ReviewForm = ({ bookId, fetchLocalBookDetails }) => {
   const [user, token] = useAuth();
   const defaultValues = {
