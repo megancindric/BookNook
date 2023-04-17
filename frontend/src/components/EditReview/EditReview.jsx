@@ -33,16 +33,13 @@ const EditReview = ({ review, fetchLocalBookDetails, setShowModal }) => {
     }
   }
   return (
-    <div
-      className="fixed w-full h-full bg-slate-100"
-      onClick={() => setShowModal({ isOpen: false, value: null })}
-    >
+    <div className="fixed inset-0 z-50 flex bg-black bg-opacity-50 items-center justify-center">
       <form
         className="form text-[#0f4c5c] rounded-lg border shadow-lg bg-slate-50 p-10 h-[400px]"
         onClick={(e) => e.stopPropagation()}
         onSubmit={handleSubmit}
       >
-        <div>
+        <div className="m-auto flex flex-col gap-6">
           <p className="text-2xl">Edit Your Review</p>
           <label>
             Rating
@@ -64,7 +61,14 @@ const EditReview = ({ review, fetchLocalBookDetails, setShowModal }) => {
             className="rounded-lg border-2 p-2"
             rows={4}
           ></textarea>
-          <button>Submit</button>
+          <div className="flex flex-row justify-between">
+            <button>Submit</button>
+            <button
+              onClick={() => setShowModal({ isOpen: false, value: null })}
+            >
+              Close
+            </button>
+          </div>
         </div>
       </form>
     </div>

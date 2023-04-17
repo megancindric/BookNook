@@ -15,7 +15,7 @@ const ReviewList = ({ localBookDetails, deleteReview, setShowModal }) => {
             <div className="flex flex-row justify-between">
               <StarRating rating={review.rating} />
               {user && user.id === review.user_id ? (
-                <>
+                <div className="flex flex-row gap-4">
                   <button onClick={() => deleteReview(review.id)}>
                     Delete
                   </button>
@@ -24,9 +24,9 @@ const ReviewList = ({ localBookDetails, deleteReview, setShowModal }) => {
                       setShowModal({ isOpen: true, value: review })
                     }
                   >
-                    Edit Review
+                    Edit
                   </button>
-                </>
+                </div>
               ) : (
                 <div></div>
               )}
