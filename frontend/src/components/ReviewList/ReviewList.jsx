@@ -1,8 +1,9 @@
 import React from "react";
 import useAuth from "../../hooks/useAuth";
 import StarRating from "../StarRating/StarRating";
-const ReviewList = ({ localBookDetails, deleteReview }) => {
+const ReviewList = ({ localBookDetails, deleteReview, setShowModal }) => {
   const [user, token] = useAuth();
+
   return (
     <div className="flex flex-col gap-4 w-1/2">
       {localBookDetails?.reviews ? (
@@ -14,7 +15,18 @@ const ReviewList = ({ localBookDetails, deleteReview }) => {
             <div className="flex flex-row justify-between">
               <StarRating rating={review.rating} />
               {user && user.id === review.user_id ? (
-                <button onClick={() => deleteReview(review.id)}>Delete</button>
+                <>
+                  <button onClick={() => deleteReview(review.id)}>
+                    Delete
+                  </button>
+                  <button
+                    onClick={() =>
+                      setShowModal({ isOpen: true, value: review })
+                    }
+                  >
+                    Edit Review
+                  </button>
+                </>
               ) : (
                 <div></div>
               )}

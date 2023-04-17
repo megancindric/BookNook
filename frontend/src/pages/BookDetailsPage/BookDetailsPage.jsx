@@ -6,11 +6,13 @@ import ReviewList from "../../components/ReviewList/ReviewList";
 import ReviewForm from "../../components/ReviewForm/ReviewForm";
 import useAuth from "../../hooks/useAuth";
 import FavoriteButton from "../../components/FavoriteButton/FavoriteButton";
+import EditReview from "../../components/EditReview/EditReview";
 const BookDetailsPage = () => {
   const { bookId } = useParams();
   const [user, token] = useAuth();
   const [googleBookDetails, setgoogleBookDetails] = useState();
   const [localBookDetails, setLocalBookDetails] = useState();
+  const [showModal, setShowModal] = useState({ isOpen: false, value: null });
   useEffect(() => {
     fetchGoogleBookDetails(bookId);
     fetchLocalBookDetails(bookId);
@@ -99,24 +101,35 @@ const BookDetailsPage = () => {
   }
 
   return (
-    <div className="m-auto max-w-7xl flex flex-col items-center gap-6 mb-28">
-      <div className="flex flex-row">
-        <BookDetails googleBookDetails={googleBookDetails} />
-        <FavoriteButton
-          localBookDetails={localBookDetails}
-          favoriteBook={favoriteBook}
-          unfavoriteBook={unfavoriteBook}
-        />
-      </div>
-      <div className="flex flex-row justify-around w-full">
-        <ReviewForm
-          bookId={bookId}
+    <div>
+      {showModal.isOpen ? (
+        <EditReview
+          review={showModal.value}
           fetchLocalBookDetails={fetchLocalBookDetails}
+          setShowModal={setShowModal}
+          onClose={() => setShowModal({ isOpen: false, value: null })}
         />
-        <ReviewList
-          localBookDetails={localBookDetails}
-          deleteReview={deleteReview}
-        />
+      ) : null}
+      <div className="m-auto max-w-7xl flex flex-col items-center gap-6 mb-28">
+        <div className="flex flex-row">
+          <BookDetails googleBookDetails={googleBookDetails} />
+          <FavoriteButton
+            localBookDetails={localBookDetails}
+            favoriteBook={favoriteBook}
+            unfavoriteBook={unfavoriteBook}
+          />
+        </div>
+        <div className="flex flex-row justify-around w-full">
+          <ReviewForm
+            bookId={bookId}
+            fetchLocalBookDetails={fetchLocalBookDetails}
+          />
+          <ReviewList
+            localBookDetails={localBookDetails}
+            deleteReview={deleteReview}
+            setShowModal={setShowModal}
+          />
+        </div>
       </div>
     </div>
   );
