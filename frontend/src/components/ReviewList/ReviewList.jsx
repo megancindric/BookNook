@@ -3,9 +3,15 @@ import useAuth from "../../hooks/useAuth";
 import StarRating from "../StarRating/StarRating";
 const ReviewList = ({ localBookDetails, deleteReview, setShowModal }) => {
   const [user, token] = useAuth();
+  console.log(localBookDetails);
 
   return (
     <div className="flex flex-col gap-4 w-1/2">
+      {localBookDetails?.avg_review ? (
+        <p className="text-2xl">
+          Average Rating: {localBookDetails?.avg_review.toFixed(2)}
+        </p>
+      ) : null}
       {localBookDetails?.reviews ? (
         localBookDetails.reviews.map((review, index) => (
           <div

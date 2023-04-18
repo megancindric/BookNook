@@ -3,7 +3,6 @@ import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import DOMPurify from "dompurify";
 
 const BookDetails = ({ googleBookDetails }) => {
-  console.log(googleBookDetails);
   const bookDescription = googleBookDetails?.volumeInfo?.description
     ? DOMPurify.sanitize(googleBookDetails.volumeInfo.description)
     : "No book description found.";
